@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>View Paste</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>📄 View Paste</h1>
+
+  <pre id="pasteContent">Loading...</pre>
+
+  <script>
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get("id");
+
+  if (!id) {
+    document.getElementById("pasteContent").textContent = "Invalid paste link";
+  } else {
+    fetch(`/api/paste?id=${id}`)
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("pasteContent").textContent =
+          data.content || "Paste not found";
+      });
+  }
+</script>
+</body>
+</html>
