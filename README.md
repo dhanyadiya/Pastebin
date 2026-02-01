@@ -45,3 +45,9 @@ npm install
 vercel dev
 http://localhost:3000
 
+   ---
+
+## 🚀 Deployment
+
+https://pastebin-c3gd.vercel.app/
+
